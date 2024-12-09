@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!-- 스크린 리더(화면 낭독 시스템)이 lang을 이용하여 자동으로 음성을 변환함, 크롬
+자동번역 인터페이스에 사용 -->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 사용자의 환경에 맞게 화면의 크기를 조정할 수 있도록 함 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut ico" href="./images/favicon.ico" />
+    <!-- 건색엔지에 의해 검색되는 딘어 지정 -->
+    <meta name="keywords" content="영화, movie, 메가박스" />
+    <meta name="Description" content="가장 최상의 영화감상을 위해 메가박스" />
+    <!-- 검색로봇엔진 -->
+    <meta name="robots" content="index, follow" />
+    <title>메가박스 클론코딩</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <header id="header">
+      <!-- container -->
+      <div class="container">
+        <h1 class="logo">
+          <a href="index.html" title="MEGABOX 메인으로 가기"
+            >최상의 영화 감상 MEGA BOX
+          </a>
+        </h1>
+        <!-- util-area -->
+        <div class="util-area">
+          <div class="left-link">
+            <a href="#" title="VIP LOUNGE">VIP LOUNGE</a>
+            <a href="#" title="멤버십">멤버십</a>
+            <a href="#" title="고객센터">고객센터</a>
+          </div>
+          <div class="right-link">
+            <a href="#" title="로그인">로그인</a>
+            <a href="#" title="회원가입">회원가입</a>
+            <a href="#" title="빠른예매">빠른예매</a>
+          </div>
+        </div>
+        <!-- util-area end -->
+        <!-- link-area -->
+        <div class="link-area">
+          <a href="#" title="사이트맵" class="siteMap">사이트맵</a>
+          <a href="#" title="검색" class="search">검색</a>
+          <a href="#" title="상영시간표" class="timeTable">상영시간표</a>
+          <a href="#" title="나의 메가박스" class="myMega">나의 메가박스</a>
+        </div>
+        <!-- link-area end -->
+        <!-- gnb -->
+        <nav id="gnb">
+          <ul class="gnb-depth1">
+            <li title="영화">
+              <a href="#" class="movie">영화</a>
+              <div class="gnb-depth2 movie-snb">
+                <ul class="clearFix">
+                  <li>
+                    <a href="#" title="전체영화">전체영화</a>
+                  </li>
+                  <li>
+                    <a href="#" title="큐레이션">큐레이션</a>
+                  </li>
+                  <li>
+                    <a href="#" title="영화제">영화제</a>
+                  </li>
+                  <li>
+                    <a href="#" title="무비포스트">무비포스트</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li title="예매">
+              <a href="#" class="reserve">예매</a>
+              <div class="gnb-depth2 reserve-snb">
+                <ul>
+                  <li>
+                    <a href="#" title="빠른예매">빠른예매</a>
+                  </li>
+                  <li>
+                    <a href="#" title="상영시간표">상영시간표</a>
+                  </li>
+                  <li>
+                    <a href="#" title="더 부티크 프라이빗 예매"
+                      >더 부티크 프라이빗 예매</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li title="극장">
+              <a href="#" class="theater">극장</a>
+              <div class="gnb-depth2 theater-snb">
+                <ul>
+                  <li>
+                    <a href="#" title="전체극장">전체극장</a>
+                  </li>
+                  <li>
+                    <a href="#" title="특별관">특별관</a>
+                  </li>
+                  <li>
+                    <a href="#" title="무비포스트">무비포스트</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li title="이벤트">
+              <a href="#" class="event">이벤트</a>
+              <div class="gnb-depth2 event-snb">
+                <ul>
+                  <li>
+                    <a href="#" title="진행중 이벤트">진행중 이벤트</a>
+                  </li>
+                  <li>
+                    <a href="#" title="지난 이벤트">지난 이벤트</a>
+                  </li>
+                  <li>
+                    <a href="#" title="당첨자발표">당첨자발표</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li title="스토어">
+              <a href="#" class="store">스토어</a>
+            </li>
+            <li title="혜택">
+              <a href="#" class="benefit">혜택</a>
+              <div class="gnb-depth2 benefit-snb">
+                <ul>
+                  <li>
+                    <a href="#" title="메가박스 멤버십">메가박스 멤버십</a>
+                  </li>
+                  <li>
+                    <a href="#" title="제휴/할인">제휴/할인</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- gnb end -->
+      </div>
+      <!-- container end -->
+    </header>
+    <!-- header end -->
+    <main id="main">
+      <!-- section01 -->
+      <section id="section01" class="section main-movie">
+        <!-- cont-area -->
+        <div class="cont-area">
+          <div class="tab-strong">
+            <button type="button" class="on" name="btnSort">
+              박스오피스순
+            </button>
+            <button type="button" name="btnSort">누적관객순</button>
+            <button type="button" name="btnSort">메가스코어순</button>
+          </div>
+          <!-- tab-strong -->
+          <a href="#" class="more-movie" title="더 많은 영화보기">
+            더 많은 영화보기
+            <i class="iconset ico-more-cross gray"></i>
+          </a>
+          <!-- main-movie-list- boxRankList -->
+          <div class="main-movie-list">
+            <ol class="list">
+              <li>
+                <!-- movie-list-info -->
+                <a href="#" class="movie-list-info" title="영화상세 보기">
+                  <p class="rank">1</p>
+                  <img
+                    src="https://img.megabox.co.kr/SharedImg/2024/11/27/7pixmzJRtypvos17SQVLHnbNPOHBpsiP_420.jpg"
+                    alt="모아나2"
+                    class="poster"
+                  />
+                  <div class="wrap">
+                    <div class="summary">
+                      &lt;모아나2 &gt;는 선조들로부터 예기치 못한 부름을 받은
+                      '모아나'가 부족의 파괴를 막기 위해 전설 속 영웅 '마우기'와
+                      새로운 선원들과 함께 숨겨진 고대 섬의 저주를 깨러 떠나는
+                      위험천만한 모험을 담은 스펙터클 오션 어드벤쳐
+                    </div>
+                  </div>
+                </a>
+                <!-- movie-list-info end -->
+                <!-- btn-util -->
+                <div class="btn-util">
+                  <button type="button" class="button btn-like">
+                    <i class="far fa-heart"></i>
+                    2.4k
+                  </button>
+                  <div class="case col2">
+                    <a href="#" class="button btnReserve" title="영화 예매하기"
+                      >예매</a
+                    >
+                  </div>
+                </div>
+                <!-- btn-util end -->
+              </li>
+              <li>
+                <!-- movie-list-info -->
+                <a href="#" class="movie-list-info" title="영화상세 보기">
+                  <p class="rank">2</p>
+                  <img
+                    src="https://img.megabox.co.kr/SharedImg/2024/12/05/pTuZidTmkH4C6i3y032IRMSgGPpFxZNZ_420.jpg"
+                    alt="소방관"
+                    class="poster"
+                  />
+                  <div class="wrap">
+                    <div class="summary">
+                      살리기 위해, 살아남기 위해 하루후루가 마지막 현자인
+                      소방관팀은 <br />
+                      열악한 환경 속에서도 화제 진압과 전원 구조라는 단 하나의
+                      목표로 의기투합한다. <br />
+                      어느날, 다급하게 119 신고 전화로 홍제동에 화재가
+                      발생했다는 긴급 상황이 접수되자, <br />
+                      팀원들은 위기를 직감하는데 <br />
+                      누군가의 가족, 친구, 사랑하는 사람 <br />
+                      우리가 기억해야 할 그 이름 <br />
+                      소방관
+                    </div>
+                  </div>
+                </a>
+                <!-- movie-list-info end -->
+                <!-- btn-util -->
+                <div class="btn-util">
+                  <button type="button" class="button btn-like">
+                    <i class="far fa-heart"></i>
+                    605
+                  </button>
+                  <div class="case col2">
+                    <a href="#" class="button btnReserve" title="영화 예매하기"
+                      >예매</a
+                    >
+                  </div>
+                </div>
+                <!-- btn-util end -->
+              </li>
+              <li>
+                <!-- movie-list-info -->
+                <a href="#" class="movie-list-info" title="영화상세 보기">
+                  <p class="rank">3</p>
+                  <img
+                    src="https://img.megabox.co.kr/SharedImg/2024/12/03/brrUdqKdWh0Cah1HIfeSxN3JhKTetEGw_420.jpg"
+                    alt="위키드"
+                    class="poster"
+                  />
+                  <div class="wrap">
+                    <div class="summary">
+                      자신의 진정한 힘을 미처 발견하지 못한 '엘파바'(신시아
+                      에리보)<br />자신의 진정한 본성을 아직 발견하지 못한
+                      ‘글린다'(아리아나 그란데)<br />
+                      <br />전혀 다른 두 사람은 마법 같은 우정을 쌓아간다.<br />그러던
+                      어느 날, '마법사'의 초대를 받아 에메랄드 시티로 가게
+                      되고<br />운명은 예상치 못한 위기와 모험으로 두 사람을
+                      이끄는데…<br /><br />마법 같은 운명의 시작, 누구나 세상을
+                      날아오를 수 있어
+                    </div>
+                  </div>
+                </a>
+                <!-- movie-list-info end -->
+                <!-- btn-util -->
+                <div class="btn-util">
+                  <button type="button" class="button btn-like">
+                    <i class="far fa-heart"></i>
+                    402
+                  </button>
+                  <div class="case col2">
+                    <a href="#" class="button btnReserve" title="영화 예매하기"
+                      >예매</a
+                    >
+                  </div>
+                </div>
+                <!-- btn-util end -->
+              </li>
+              <li>
+                <!-- movie-list-info -->
+                <a href="#" class="movie-list-info" title="영화상세 보기">
+                  <p class="rank">4</p>
+                  <img
+                    src="https://img.megabox.co.kr/SharedImg/2024/12/05/jLzDTIo6txMTbzpV8QcfgbtvdUqxRa2h_420.jpg"
+                    alt="1승"
+                    class="poster"
+                  />
+                  <div class="wrap">
+                    <div class="summary">
+                      "그래도 한 번은 이기겠죠?"<br /><br />지도자 생활 평균
+                      승률 10% 미만! 파직, 파면, 파산, 퇴출, 이혼까지
+                      <br />인생에서도 ‘패배’ 그랜드슬램을 달성 중인 배구선수
+                      출신 감독 ‘우진’은<br />해체 직전의 프로 여자배구단
+                      ‘핑크스톰’의 감독을 맡아 달라는 제안을 받는다.<br /><br />에이스
+                      선수의 이적으로 이른바 ‘떨거지’ 선수들만 남은 팀
+                      ‘핑크스톰’은<br />새로운 구단주 ‘정원’의 등장으로 간신히
+                      살아나지만 실력도, 팀워크도 이미 해체 직전 상태.<br />그
+                      와중에 막장, 신파는 옵션, 루저들의 성장 서사에 꽂힌
+                      ‘정원’은 <br />‘핑크스톰’이 딱 한번이라도 1승을 하면 상금
+                      20억을 풀겠다는 파격 공약을 내세운다. <br /><br />모두가
+                      주목하는 구단이 됐지만 압도적인 연패 행진을 이어가는
+                      ‘핑크스톰’.<br />패배가 익숙했던 ‘우진’도 점점 울화통이
+                      치밀고, <br />경험도 가능성도 없는 선수들과 함께 단
+                      한번만이라도 이겨보고 싶은 마음이 생기는데…
+                    </div>
+                  </div>
+                </a>
+                <!-- movie-list-info end -->
+                <!-- btn-util -->
+                <div class="btn-util">
+                  <button type="button" class="button btn-like">
+                    <i class="far fa-heart"></i>
+                    2.9k
+                  </button>
+                  <div class="case col2">
+                    <a href="#" class="button btnReserve" title="영화 예매하기"
+                      >예매</a
+                    >
+                  </div>
+                </div>
+                <!-- btn-util end -->
+              </li>
+            </ol>
+          </div>
+          <!-- main-movie-list end -->
+          <div class="serach-link">
+            <div class="cell">
+              <div class="search">
+                <input
+                  type="text"
+                  placeholder="영화명을 입력해주세요"
+                  title="영화 검색"
+                  class="input-text"
+                />
+                <button class="btn">
+                  <i class="ico-search"></i>
+                  검색
+                </button>
+              </div>
+            </div>
+            <div class="cell">
+              <a href="#" title="상영시간표 보기">
+                <i class="schedule"></i>
+                상영시간표
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="박스오피스 보기">
+                <i class="boxOffice"></i>\ 박스오피스
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="빠른예매 보기">
+                <i class="quickReserve"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- cont-area end -->
+      </section>
+      <!-- section01 end   -->
+      <!-- section02 -->
+      <section id="section02" class="section main-benefit">
+        <!-- wrap -->
+        <div class="wrap">
+          <div class="tit-util">
+            <h2 class="tit">혜택</h2>
+            <a href="#" title="혜택 더보기" class="btn-more">더보기</a>
+          </div>
+          <!-- slider -->
+          <div class="slider main-condition">
+            <!-- slider-view -->
+            <div class="slider-view">
+              <!-- cell -->
+              <div class="cell">
+                <div class="position">
+                  <div class="txt">
+                    <a
+                      href="#"
+                      title="메가박스가 제안하는 &lt;모아나&gt;.를 가장 잘 간직하는 방법"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/11/25/Rn4u3EWxBSWANQNLpS6nkpRP5SAXpbU9.jpg"
+                        alt="모아나 오리지널 티켓"
+                    /></a>
+                  </div>
+                  <div class="bg">
+                    <a
+                      href="#"
+                      title="메가박스가 제안하는 &lt;모아나&gt;.를 가장 잘 간직하는 방법"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/11/25/1zk06NvlVjdXGK2Q3ZaFbfxK2gxgTgnJ.jpg"
+                        alt="모아나 오리지널 티켓"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+              <!-- cell end -->
+              <!-- cell -->
+              <div class="cell">
+                <div class="position">
+                  <div class="txt">
+                    <a
+                      href="#"
+                      title="메가박스가 제안하는 &lt;컨택트&gt;.를 가장 잘 간직하는 방법"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/11/11/zlSshJxaa4TaAOT4o1QffJFeVXXXpQq3.jpg"
+                        alt="컨택트 오리지널 티켓"
+                    /></a>
+                  </div>
+                  <div class="bg">
+                    <a
+                      href="#"
+                      title="메가박스가 제안하는 &lt;컨택트&gt;.를 가장 잘 간직하는 방법"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/11/11/IsZQZc9qRERit5KB2L4ludjTXwrTsv3Q.jpg"
+                        alt="컨택트 오리지널 티켓"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+              <!-- cell end -->
+              <!-- cell -->
+              <div class="cell">
+                <div class="position">
+                  <div class="txt">
+                    <a
+                      href="#"
+                      title="2025년, 당신을 달리게 할 메가박스 다이어리 &lt;&gt;"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/11/18/DT2fwOoigt7oArNkLNR8LbI7IjSXNEKT.jpg"
+                        alt="위키드 오리지널 티켓"
+                    /></a>
+                  </div>
+                  <div class="bg">
+                    <a
+                      href="#"
+                      title="메가박스가 제안하는 &lt;위키드&gt;.를 가장 잘 간직하는 방법"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/11/18/NaF1MsB8gEYjPwpWBGmbBIj9Yiyks92h.jpg"
+                        alt="위키드 오리지널 티켓"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+              <!-- cell end -->
+              <!-- cell -->
+              <div class="cell">
+                <div class="position">
+                  <div class="txt">
+                    <a
+                      href="#"
+                      title="2025년, 당신을 달리게 할 메가박스 다이어리 &lt;INFINITE POWER&gt;"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/10/25/rJ952a8JpbgmHSsjPXbA20pIogJjmUJZ.jpg"
+                        alt="메가박스 2025 다이어리"
+                    /></a>
+                  </div>
+                  <div class="bg">
+                    <a
+                      href="#"
+                      title="메가박스가 제안하는 &lt;모아나&gt;.를 가장 잘 간직하는 방법"
+                    >
+                      <img
+                        src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/10/25/8pnfD3MnGMMamzUSvBzGKTFHfARuRIXW.jpg"
+                        alt="메가박스 2025 다이어리"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+              <!-- cell end -->
+            </div>
+            <!-- slider-view end -->
+            <div class="slider-control">
+              <div class="page">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="util">
+                <button type="button" class="btn-prev">이전 이벤트 보기</button>
+                <button type="button" class="btn-next">다음 이벤트 보기</button>
+                <button type="button" class="btn-pause">일시정지</button>
+                <button type="button" class="btn-play">자동재생</button>
+              </div>
+              <div class="page-count">1 / 3</div>
+            </div>
+            <!-- slider-control end -->
+          </div>
+          <!-- slider end -->
+          <!-- brn-ad -->
+          <div class="brn-ad">
+            <div class="banner">
+              <div class="size">
+                <a href="#" title="특전 이벤트 하이큐!">
+                  <img
+                    src="./images/add4.jpg"
+                    alt="LGU+ 멤버십 메가박스 할인"
+                  />
+                </a>
+              </div>
+              <div class="size small">
+                <a href="#" title="LGU+ 멤버십 메가박스 할인">
+                  <img
+                    src="./images/add5.jpg"
+                    alt="LGU+ 멤버십 메가박스 할인"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="ad-img">
+              <img
+                src="./images/add2.jpg"
+                alt="현대해상 다이렉트 이달의 자동차볼험 만기가 다가왔어요!"
+              />
+            </div>
+          </div>
+          <!-- brn-ad end -->
+          <!-- menu-link -->
+          <div class="menu-link">
+            <div class="cell vip">
+              <a href="#" title="VIP LOUNGE 페이지로 이동">VIP LOUNGE</a>
+            </div>
+            <div class="cell membership">
+              <a href="#" title="멤버십 페이지로 이동">멤버십</a>
+            </div>
+            <div class="cell card">
+              <a href="#" title="할인카드안내 페이지로 이동">할인카드안내</a>
+            </div>
+            <div class="cell event">
+              <a href="#" title="이벤트 페이지로 이동">이벤트</a>
+            </div>
+            <div class="cell store">
+              <a href="#" title="스토어 페이지로 이동">스토어</a>
+            </div>
+          </div>
+          <!-- menu-link end -->
+        </div>
+        <!-- wrap end -->
+      </section>
+      <!-- section02 end -->
+      <section id="section03" class="section main-curation">
+        <div class="wrap">
+          <div class="tit-util">
+            <h2 class="tit">큐레이션</h2>
+            <a href="#" title="큐레이션 더보기">큐레이션 더보기</a>
+            <i class="iconset ico-more-cross gray"></i>
+          </div>
+          <!-- curation-area -->
+          <div class="curation-area">
+            <!-- curr-img -->
+            <div class="curr-img">
+              <p class="bage film">메가박스 필름소사이어티</p>
+              <!-- img -->
+              <div class="img">
+                <a href="#" title="영화상세 보기">
+                  <img
+                    src="./images/Curation_420.jpg"
+                    alt="이상한 나라의 앨리스"
+                  />
+                </a>
+              </div>
+              <!-- img end -->
+              <!-- btn-group -->
+              <div class="btn-group">
+                <div class="left">
+                  <a href="#" title="영화상세 보기" class="button">상세정보</a>
+                </div>
+                <div class="right">
+                  <a href="#" title="예매하기" class="button">예매</a>
+                </div>
+              </div>
+              <!-- btn-group end -->
+              <div class="info film">
+                <p class="txt"># <span>클래식소사이어티</span></p>
+                <p class="tit">[RBO] 이상한 나라의 앨리스</p>
+                <p class="summary">
+                  화장한 오후에 가든 파티에서 앨리스는 부모님의 친구 루이스
+                  캐럴이 <br />
+                  흰토끼로 변신하는 것을 보고 놀란다. 그리고 그녀는 토끼로 변한
+                  루이스 캐럴을 따라 토끼 굴로 들어가며 이상한 사건에 휘말린다.
+                  <br />
+                  앨리스는 원더랜드를 여행하면서 수많은 이상한 생명체를 만난다.
+                  <br />
+                  그녀는 타르트를 훔친 혐의로 도망치는 매력적인 하트인
+                  네이브에게 푹 빠지며 혼란에
+                  <br />
+                  혼란이 더해진다. 결국 깜짝 놀라 깨어난 앨리스, 이 모든 것은
+                  꿈이었을까?
+                </p>
+              </div>
+              <!-- info end -->
+              <div class="list">
+                <ul>
+                  <li>
+                    <a href="#" title="영화상세 보기">
+                      <p class="bage film">필름 소사이어티</p>
+                      <div class="img">
+                        <img src="./images/Curation1_230.jpg" alt="미망" />
+                      </div>
+                      <p class="tit">미망</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="영화상세 보기">
+                      <p class="bage film">필름 소사이어티</p>
+                      <div class="img">
+                        <img src="./images/Curation2_230.jpg" alt="돈 조반니" />
+                      </div>
+                      <p class="tit">돈 조반니</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="영화상세 보기">
+                      <p class="bage film">필름 소사이어티</p>
+                      <div class="img">
+                        <img
+                          src="./images/Curation3_230.jpg"
+                          alt="전장의 크리스마스"
+                        />
+                      </div>
+                      <p class="tit">전장의 크리스마스</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="영화상세 보기">
+                      <p class="bage film">필름 소사이어티</p>
+                      <div class="img">
+                        <img src="./images/Curation4_230.jpg" alt="언니 유정" />
+                      </div>
+                      <p class="tit">언니 유정</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- curr-img end -->
+          </div>
+          <!-- curation-area end -->
+        </div>
+        <!-- wrap end -->
+      </section>
+      <!-- section03 end -->
+      <!-- section04 -->
+      <section id="section04" class="section main-info">
+        <h2 class="tit">메가박스 안내</h2>
+        <!-- info-special -->
+        <div class="info-special">
+          <a href="#" title="부띠크 페이지로 이동">부띠크</a>
+          <a href="#" title="MX 페이지로 이동">MX</a>
+          <a href="#" title="COMFORT 페이지로 이동">COMFORT</a>
+          <a href="#" title="MEGA KIDS BOX 페이지로 이동">MEGA KIDS BOX</a>
+          <a href="#" title="THE FIRST CLUB 페이지로 이동">THE FIRST CLUB</a>
+        </div>
+        <!-- info-special end -->
+        <!-- info-notice -->
+        <div class="info-notice">
+          <div class="wrap">
+            <p class="tit">메가박스</p>
+            <p class="link">
+              <a href="#" title="공지사항 상세보기">
+                <strong>[공지]</strong>
+                [OK캐쉬백] 24년 4분기 시스템 정기 점검 안내 (12/18)
+              </a>
+            </p>
+            <p class="date">2024.12.10</p>
+            <p class="more">
+              <a href="#" title="전체공지 더보기"
+                >더보기
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </p>
+          </div>
+        </div>
+        <!-- info-notice end -->
+        <!-- info-link -->
+        <div class="info-link">
+          <div class="table">
+            <div class="cell">
+              <a href="#" title="고객센터 페이지로 이동">
+                <i class="iconset ico-main-customer"></i>
+                <span>고객센터</span>
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="자주 묻는 질문 페이지로 이동">
+                <i class="iconset ico-main-faq"></i>
+                <span>자주 묻는 질문</span>
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="1:1 문의 페이지로 이동">
+                <i class="iconset ico-main-qna"></i>
+                <span>1:1 문의</span>
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="단체/대관문의 페이지로 이동">
+                <i class="iconset ico-main-group"></i>
+                <span>단체/대관문의</span>
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="분실물 문의/접수 페이지로 이동">
+                <i class="iconset ico-main-lost"></i>
+                <span>분실물 문의/접수</span>
+              </a>
+            </div>
+            <div class="cell">
+              <a href="#" title="더 부티크 프라이빗 대관예매 페이지로 이동">
+                <i class="iconset ico-main-boutique"></i>
+                <span>더 부티크 프라이빗 <br />대관예매</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- info-link end -->
+      </section>
+    </main>
+    <footer id="footer">
+      <!-- footer-top -->
+      <div class="footer-top">
+        <div class="inner-wrap">
+          <ul class="fnb">
+            <li><a href="#" title="회사소개 페이지로 이동">회사소개</a></li>
+            <li><a href="#" title="인재채용 페이지로 이동">인재채용</a></li>
+            <li><a href="#" title="사회공헌 페이지로 이동">사회공헌</a></li>
+            <li>
+              <a href="#" title="제휴/광고/부대사업문의 페이지로 이동"
+                >제휴/광고/부대사업문의</a
+              >
+            </li>
+            <li><a href="#" title="이용약관 페이지로 이동">이용약관</a></li>
+            <li class="privacy">
+              <a href="#" title="개인정보처리방침 페이지로 이동"
+                >개인정보처리방침</a
+              >
+            </li>
+            <li>
+              <a href="#" title="극장찾기" class="looking-theather">
+                <i class="iconset ico-footer-search">극장찾기</i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- footer-top end -->
+      <!-- footer-bottom -->
+      <div class="footer-bottom">
+        <div class="inner-wrap">
+          <div class="ci">MEGABOX : Life Theater</div>
+          <div class="footer-info">
+            <div>
+              <address>
+                서울특별시 성동구 왕십리로 50, 6층(성수동 1가, 메가박스스퀘어)
+              </address>
+              <p>ARS 1544-0070</p>
+            </div>
+            <p>대표자명 김진선</p>
+            <p>· 개인정보보호책임자 BP본부 본부장 박영진</p>
+            <p>· 사업자등록번호 211-86-59478</p>
+            <p>· 통신판매업신고번호 제 833호</p>
+            <p class="copy">
+              COPYRIGHT @ MegaboxJoongAng, Inc. All rights reserved
+            </p>
+          </div>
+          <div class="footer-sns">
+            <a
+              href="https://twitter.com/megaboxon"
+              target="_blank"
+              title="트위터 페이지로 이동"
+            >
+              <i class="iconset ico-twitter">트위터</i>
+            </a>
+            <a href="https://www.facebook.com/megaboxon" "="" target="_blank" title="페이스북 페이지로 이동">
+              <i class="iconset ico-facebook">페이스북</i>
+            </a>
+            <a href="https://instagram.com/megaboxon" target="_blank" title="인스타그램 페이지로 이동">
+              <i class="iconset ico-instagram">인스타그램</i>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.megabox.mop" target="_blank" title="구글플레이 페이지로 이동">
+              <i class="iconset ico-googleplay">구글플레이</i>
+            </a>
+            <a href="https://itunes.apple.com/kr/app/megabox/id894443858?l=ko&amp;ls=1&amp;mt=8" target="_blank" title="메가박스 앱스토어 페이지로 이동">
+              <i class="iconset ico-appstore">메가박스 앱스토어</i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- footer-bottom end -->
+    </footer>
+    <!-- footer end -->
+  </body>
+</html>
